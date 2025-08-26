@@ -1,0 +1,120 @@
+
+*{
+    background-color: rgb(147, 181, 212);
+    background-color: transparent;
+    
+    
+}
+
+
+body{
+  text-align: center;
+  
+  background-image: url("imagen.avif");
+  background-size: cover;
+  background-position: center;
+  height: 100%; 
+  overflow-x: hidden;
+
+}
+
+
+.container {
+  display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   padding: 100px 20px 60px;
+   gap: 1.5rem;
+   
+}
+
+
+
+.mipagina {
+    color: #2d2d2b;
+    font-size: 4rem;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    
+}
+
+#jose{
+    color: #2d2d2b;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+
+   
+}
+
+
+
+
+.caja{
+   background-color: transparent;
+   height: 400px;
+   width: 310px;
+   max-width: 62rem;
+   
+   max-height: 25rem;
+   box-sizing: border-box;
+  
+   border-radius: 18px;
+   
+}
+
+
+
+
+.quien {
+    color: #ccc;
+    font-size: 2.5rem;
+    background-color: #333333;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    border-radius: 22px;
+    
+}
+
+.foto {
+    width:77%;
+    height:40%;
+    display: block;
+    
+    justify-self: center;
+    border-radius: 12px;
+    
+}
+
+
+
+
+.hoja{
+    display: block;
+    width: 90%;
+    height:40%;
+    justify-self: center;
+    border-radius: 12px;
+}
+
+
+
+.tienda{
+     display: block;
+     width: 90%;
+     height: 40%;
+     justify-self: center;
+     border-radius: 12px;
+}
+
+
+ 
+.botondelink{
+    border-radius: 19px;
+    color: #ccc;
+    background-color:  #333333;
+    padding: 5px;
+}   
+
+
+
