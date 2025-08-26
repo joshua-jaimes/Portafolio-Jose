@@ -1,0 +1,724 @@
+
+
+html, body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  max-width: 100vw;
+}
+
+
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+
+
+
+
+
+body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      
+    }
+
+
+
+
+
+
+
+
+.primercontenido{
+    
+  
+  
+   background-color: black;
+   color: white;
+   display: flex;
+   justify-content: space-between;
+  font-size: 12px;  
+  padding: 1rem 5rem 1rem 3rem;
+  
+}
+
+
+.p1{
+    
+    
+    
+    
+}
+
+#My{ 
+ 
+   
+   
+}
+
+#item1{
+    color: white;
+    background-color: black
+}
+
+.segundocontenido{
+    
+  
+   
+   background-color: black;
+   color: white;
+   display: flex;
+   gap: 19px;
+   padding-right: 2rem;
+   text-align: end;
+}
+
+
+.Quickstore{
+    
+    background-color: black;
+    color: white;
+    height: 2.29rem;
+    padding: 1rem 5rem 1rem 3rem;
+    padding-top: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+#store{
+    background-color: #e9d451;
+    color: black;
+    border-radius: 8px;
+    width: 2rem;
+    font-size: 0.9rem;
+}
+
+#select{
+    color: white;
+    background-color: black;
+    border-color: black;
+}
+
+
+
+
+
+#My{
+    
+}
+
+.encabezado{
+   
+}
+
+.buscar{
+
+    margin-left: 31.4em;
+}
+
+#busqueda{
+    
+   
+   
+    max-width: 300px;
+    box-sizing: border-box;
+    border-radius: 13rem;
+}
+
+
+
+.primeraparte{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    background-color: #e7ebee;
+    min-height: 27rem;
+    max-width: 100%;
+    margin: 0 auto
+}
+
+
+
+.partesamsung{
+    
+    text-align: center;
+    align-self: center;
+    margin: 0 auto;
+    width: 17rem;
+    
+}
+
+
+#Galaxy{
+   text-align: start;
+
+}
+
+#ultra{
+    font-size: 1.6em;
+}
+
+
+
+#from{
+    font-size: 0.67em;
+}
+
+.buy{
+    background-color: #0368c7;
+    color: white;
+    border-radius: 19px;
+    padding: 7.7px;
+    font-size: 0.75em;
+    width: 6.3em;
+   
+}
+
+.Learnmore{
+    color: black;
+}
+
+
+
+.celularfoto{
+    width: 27.9em;
+    
+    margin-top:3.8rem;
+}
+
+
+
+
+
+
+#ourtop{
+
+    margin-top: 2rem;
+    margin-left: 1.7rem;
+}
+
+
+.imagenes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  align-self: center;
+  gap: 1rem;
+  
+}
+
+.imagenx{
+    width: 7em;
+    height: 7em;
+    background-color: azure;
+}
+
+.textodeimagen{
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 0.8rem;
+    margin-right: 4.1em;
+}
+
+.items{
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 0.8rem;
+    
+}
+
+
+
+
+.fotos{
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    width: 100%;
+    gap: 1.75%;
+    padding-left: 3%;
+    padding-right: 4%;
+    
+    
+    
+    
+}
+
+.venta1{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 12px;
+    align-items: center;
+    background-color: #eeeadf;
+
+
+    width: 100%;
+  max-width: 29rem;
+    min-height: 15.7rem;
+    justify-self: center;
+}
+
+.textodeventa{
+    text-align: start;
+    padding: 1.3rem;
+    font-size: 1.22rem;
+}
+
+
+
+
+
+.venta2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 12px;
+    align-items: center;
+    background-color: #efdcde;
+    width: 100%;
+  max-width: 29rem;
+    height: 15.7rem;
+    justify-self: center;
+}
+
+.venta3{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 12px;
+    align-items: center;
+    background-color: #e7ebee;
+    width: 100%;
+  max-width: 29rem;
+    height: 15.7rem;
+    justify-self: center;
+}
+
+
+.venta4{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 12px;
+    align-items: center;
+    background-color: #f6f6f8;
+    width: 100%;
+  max-width: 29rem;
+    min-height: 15.7rem;
+    justify-self: center;
+}
+
+
+.venta5{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 12px;
+    align-items: center;
+    background-color: #e7ebee;
+    width: 100%;
+  max-width: 29rem;
+    min-height: 15.7rem;
+    justify-self: center;
+}
+
+
+
+.venta6{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 12px;
+    align-items: center;
+    background-color: #e9e6f1;
+    width: 100%;
+  max-width: 29rem;
+    min-height: 15.7rem;
+    justify-self: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.boton{
+    font-size: 7.7px;
+    margin-bottom: 0.7em;
+    background-color: white;
+    border-color: white;
+}
+
+.Frombuy{
+    font-size: 0.63em;
+}
+
+.boton2{
+    background-color: #0368c7;
+    color: white;
+    border-radius: 19px;
+    padding: 7.7px;
+    font-size: 0.7em;
+    width: 6em;
+    min-height: 2.5em;
+    margin-top: 0.5em;
+    
+    
+    
+}
+
+
+
+.foto1{
+
+    width: 10rem;
+    min-height: 10rem;
+}
+
+.partefinal{
+    background-color: white;
+}
+
+.ultimaparte{
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-top: 4%;
+    
+    
+}
+
+
+#partetextofinal{
+    margin-bottom: 1.3em;
+    margin-top: 1.3rem;
+}
+
+.diferentespictures{
+    display: grid;
+    grid-template-columns: repeat(6, 16%);
+    gap: 0;
+}
+
+.diseñopictures{
+    width: 10.1rem;
+ 
+    background-color: #ffffff;
+    gap: 0;
+}
+
+.pictures{
+
+    width: 9.2rem;
+    height: 10rem;
+    gap: 0;
+    
+
+}  
+
+
+
+
+
+
+
+
+@media (max-width: 680px) {
+
+.fotos{
+
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+
+
+}
+
+
+.diferentespictures{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+.primeraparte{
+    display: grid;
+    grid-template-columns: 54.55% 45.45%;
+}
+
+
+
+
+}
+
+
+
+@media (max-width: 1099px) {
+
+.fotos{
+
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+
+
+}
+
+
+
+.primeraparte{
+    display: grid;
+    grid-template-columns: 54.55% 45.45%;
+}
+
+.buscar{
+    padding-right: 20rem;
+}
+
+.Quickstore{
+    height: 3.8rem;
+}
+
+
+
+
+
+
+}
+
+@media (max-width: 1199px) {
+ .Quickstore{
+    height: 3.8rem;
+}
+
+.textodeimagen{
+    padding-left: 2rem;
+}
+}
+
+@media (max-width: 1378px) {
+ .textodeimagen{
+     padding-left: 1.63rem;
+}
+}
+
+
+
+@media (max-width: 900px) {
+
+
+
+.primeraparte{
+  display: grid;
+  grid-template-columns: 54.55% 45.45%;
+}
+
+.fotos{
+
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+
+
+}
+
+
+.primeraparte{
+    display: grid;
+    grid-template-columns: 54.55% 45.45%;
+}
+
+
+
+}
+
+
+@media (max-width: 950px) {
+
+.fotos{
+
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+
+
+}
+
+.p1{
+
+    text-align: start;
+    
+}
+
+.primeraparte{
+    display: grid;
+    grid-template-columns: 54.55% 45.45%;
+}
+
+.p1{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    height: 6rem;
+    
+    
+}
+
+.Quickstore{
+    height: 8.2rem;
+    font-size: 1.70rem;
+    font-size: 1.7rem
+    
+} 
+
+.venta1{
+    font-size: 2rem;
+}
+
+
+}
+
+
+@media (max-width: 768px) {
+
+.primeraparte{
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 50rem;
+    
+}
+
+.imagenes{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 4rem;
+}
+
+.fotos{
+
+   display: grid;
+   grid-template-columns: repeat(1, 1fr);
+   
+
+}
+
+.p2{
+    text-align: center;
+}
+
+
+.imagenx{
+    width: 16rem;
+    min-height: 20rem;
+}
+
+.diferentespictures{
+    display: grid;
+    grid-template-columns: repeat(2, 42%);
+    margin-left: 4rem;
+    margin-top: 4.8rem;
+}
+
+.partetextofinal{
+   
+    
+    padding-top: 10rem;
+
+
+
+}
+
+.ultimaparte{
+    padding-top: 11rem;
+}
+
+.parteb{
+    margin-top: 9rem;
+    font-size: 2rem;
+}
+
+.celularfoto{
+    padding-bottom: 6.54rem;
+    margin-left: 10rem;
+    
+}
+
+.partesamsung{
+    margin-top: 8rem;
+   
+
+
+}
+
+.contenedorencabezado{
+    height: 3.4rem;
+    
+}
+
+.p1{
+    font-size: 1.17rem;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    
+    
+}
+
+.Quickstore{
+    height: 6rem;
+    font-size: 1.70rem;
+    padding-top: 3rem;
+    height: 11.2rem;
+    text-align: center;
+    text-align: start;
+   
+} 
+
+.venta1{
+    font-size: 2rem;
+}
+
+.busqueda{
+    margin-right: 2rem;
+}
+ 
+
+
+
+
+}
+
+@media (max-width: 948px) {
+
+    .celularfoto{
+        
+        padding-right:9.9rem;
+        padding-top: 5.2rem;
+        width: 31rem;
+        height: 33.54rem;
+       
+    }
+
+    .my{
+        margin-right: 10rem;
+    }
+    
+    
+}
+
+@media (max-width: 454px) {
+  
+ .imagenes{
+
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-self: center;
+ }
+}
+
+
+
