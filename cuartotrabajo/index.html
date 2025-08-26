@@ -1,0 +1,108 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="jos.css">
+</head>
+<body>
+
+    <div class="todo">
+    
+<h1 id="cal">Calculadora</h1>
+    <h3 id="resultado"></h3>
+    <div class="formulario">
+     <input type="text" id="numero1">
+     <input type="text" id="numero2"  >
+     <button id="espacio" onclick="operacion()">Enter</button>
+    </div>
+  <br>
+
+  <div class="botones">
+  <input type="radio" id="sumar" name="operacion"  onclick="opsumar()">
+  <label for="sumar">sumar</label><br>
+
+  <input type="radio" id="restar" name="operacion" onclick="oprestar()">
+  <label for="restar">restar</label><br>
+
+  <input type="radio" id="multiplicar" name="operacion" onclick="opmultiplicar()">
+  <label for="multiplicar">multiplicar</label><br>
+  
+  <input type="radio" id="dividir" name="operacion" onclick="opdividir()">
+  <label for="dividir">dividir</label><br>
+  </div>
+</div>
+
+</form>
+ <script>   
+ 
+ 
+
+function operacion () {
+   if (document.getElementById("sumar").checked) {
+        opsumar();
+    } else if (document.getElementById("restar").checked) {
+        oprestar();
+    } else if (document.getElementById("multiplicar").checked) {
+        opmultiplicar();
+    } else if (document.getElementById("dividir").checked) {
+        opdividir();
+    }
+    
+}
+
+
+function opsumar() {
+
+    let resultados = document.getElementById("resultado");
+    let num1 = document.getElementById("numero1")
+    let num2 = document.getElementById("numero2")
+    resultados.textContent = parseInt(num1.value) + parseInt(num2.value);
+    
+}
+
+
+function oprestar() {
+
+    let resultados = document.getElementById("resultado");
+    let num1 = document.getElementById("numero1")
+    let num2 = document.getElementById("numero2")
+    resultados.textContent = parseInt(num1.value) - parseInt(num2.value);
+    
+}
+
+
+function opmultiplicar() {
+
+    let resultados = document.getElementById("resultado");
+    let num1 = document.getElementById("numero1")
+    let num2 = document.getElementById("numero2")
+    resultados.textContent = parseInt(num1.value) * parseInt(num2.value);
+    
+}
+
+
+function opdividir() {
+
+    let resultados = document.getElementById("resultado");
+    let num1 = document.getElementById("numero1")
+    let num2 = document.getElementById("numero2")
+    if (num2 !== 0) {
+       resultados.textContent = "No se puede dividir por 0."; 
+    }else{
+        resultados.textContent = parseInt(num1.value) / parseInt(num2.value);
+    }
+}
+
+
+
+    
+
+
+ </script>
+   
+</body>
+</html>
