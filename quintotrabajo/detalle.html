@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Detalle del lugar</title>
+    <link rel="stylesheet" href="jos.css" />
+  </head>
+  <body>
+    <div class="detalle-card">
+      <div id="detalle"></div>
+      <button onclick="window.location.href='index.html'" id="boton">
+        ⬅ Volver
+      </button>
+    </div>
+
+    <script>
+      const lugar = JSON.parse(localStorage.getItem("lugarSeleccionado"));
+      if (lugar?.categoria) {
+        const color1 = lugar.categoria.colorPrimario;
+        const color2 = lugar.categoria.colorSecundario;
+        document.body.style.background = `linear-gradient(to bottom right, ${color1}, ${color2})`;
+      }
+
+      if (lugar) {
+        const contenedor = document.getElementById("detalle");
+
+        const titulo = document.createElement("h1");
+        titulo.textContent = lugar.pais;
+
+        const nombrelugar = document.createElement("h2");
+        nombrelugar.textContent = lugar.nombre;
+
+        const imagen = document.createElement("img");
+        imagen.src = lugar.url_imagen;
+
+        const ciudad = document.createElement("p");
+        ciudad.textContent = "Ciudad: " + lugar.ciudad;
+        ciudad.style.fontSize = "1.8rem";
+        ciudad.style.fontWeight = "bold";
+
+        const descripcion = document.createElement("p");
+        descripcion.textContent = lugar.descripcion || "No disponible";
+
+        const ubicacion = document.createElement("h3");
+        ubicacion.textContent = "📍 Coordenadas";
+
+        const listaCoordenadas = document.createElement("ul");
+
+        const coordenada1 = document.createElement("li");
+        coordenada1.textContent = "Latitud: " + lugar.coordenadas.latitud;
+        listaCoordenadas.appendChild(coordenada1);
+
+        const coordenada2 = document.createElement("li");
+        coordenada2.textContent = "Longitud: " + lugar.coordenadas.longitud;
+        listaCoordenadas.appendChild(coordenada2);
+
+        
+        const datosTitulo = document.createElement("h3");
+        datosTitulo.textContent = "✨ Datos Interesantes:";
+
+        const listaDatos = document.createElement("ul");
+        lugar.datosInteresantes.forEach((dato) => {
+          const item = document.createElement("li");
+          item.textContent = `${dato.titulo}: ${dato.valor}`;
+          listaDatos.appendChild(item);
+        });
+
+        
+        const actividadesTitulo = document.createElement("h3");
+        actividadesTitulo.textContent = "🎯 Actividades Recomendadas:";
+
+        const listaActividades = document.createElement("ul");
+        lugar.actividadesRecomendadas.forEach((actividad) => {
+          const item = document.createElement("li");
+          item.textContent = actividad;
+          listaActividades.appendChild(item);
+        });
+
+       
+        contenedor.appendChild(titulo);
+        contenedor.appendChild(nombrelugar);
+        contenedor.appendChild(imagen);
+        contenedor.appendChild(ciudad);
+        contenedor.appendChild(descripcion);
+        contenedor.appendChild(ubicacion);
+        contenedor.appendChild(listaCoordenadas);
+        contenedor.appendChild(datosTitulo);
+        contenedor.appendChild(listaDatos);
+        contenedor.appendChild(actividadesTitulo);
+        contenedor.appendChild(listaActividades);
+      } 
+    </script>
+  </body>
+</html>

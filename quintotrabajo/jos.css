@@ -1,0 +1,165 @@
+body {
+    background-image: url('image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    margin: 0;
+}
+
+#titulo {}
+
+
+
+
+.contenedortarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+
+
+}
+
+
+
+h1 {
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+h2 {
+    text-align: center;
+    display: inline
+}
+
+.fila-horizontal {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.tarjeta {
+    background-color: #f0f8ff;
+    border: 2px solid #0077b6;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+
+div {
+
+    display: grid;
+
+
+
+}
+
+img {
+    width: 250px;
+    height: 200px;
+    justify-self: center;
+    border-radius: 10px;
+    
+}
+
+#boton {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 130%;
+    background-color: gray;
+    border-radius: 14px;
+
+}
+
+.detalle-card {
+  background-color: rgba(255, 255, 255, 0.92);
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 800px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  backdrop-filter: blur(8px);
+}
+
+.detalle-card h1 {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+  color: #0077b6;
+}
+
+.detalle-card h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #023e8a;
+}
+
+.detalle-card img {
+  display: block;
+  margin: 1rem auto;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  width: clamp(300px, 70%, 600px);
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.detalle-card img:hover {
+  transform: scale(1.05);
+}
+
+.detalle-card p {
+  margin: 0.8rem 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.detalle-card h3 {
+  margin-top: 1.5rem;
+  border-bottom: 2px solid #0077b6;
+  padding-bottom: 5px;
+  color: #0077b6;
+}
+
+.detalle-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.detalle-card ul li {
+  background: #e0f7fa;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: background 0.2s;
+}
+
+.detalle-card ul li:hover {
+  background: #b2ebf2;
+}
+
+#boton {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#boton:hover {
+  background-color: #023e8a;
+}
+
+

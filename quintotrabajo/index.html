@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="jos.css" />
+  </head>
+  <body class="body">
+    <h1 id="titulo">Lugares del Mundo</h1>
+
+    <div id="contenedor" class="contenedortarjetas"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        let res = await axios.get("./lugares.json");
+        console.log(res);
+
+        res.data.forEach((element, i) => {
+          console.log(element);
+
+          let divisor = document.createElement("div");
+          divisor.className = "tarjeta";
+
+          let h1 = document.createElement("h1");
+          h1.textContent = element.pais;
+           h1.style.fontFamily =" Playfair Display, serif;"
+
+
+          let fila = document.createElement("div");
+          fila.className = "fila-horizontal";
+
+          let imagen = document.createElement("img");
+          imagen.src = element.url_imagen;
+
+          let descripcion = document.createElement("h2");
+          descripcion.textContent = element.nombre;
+          
+          let ciudad = document.createElement("h2");
+          ciudad.textContent = element.ciudad;
+         
+
+          fila.appendChild(ciudad);
+          fila.appendChild(descripcion);
+
+          divisor.appendChild(h1);
+          divisor.appendChild(imagen);
+
+          divisor.appendChild(fila);
+
+          divisor.addEventListener("click", () => {
+            localStorage.setItem("lugarSeleccionado", JSON.stringify(element));
+            window.location.href = "detalle.html";
+          });
+
+          document.getElementById("contenedor").appendChild(divisor);
+        });
+      });
+    </script>
+  </body>
+</html>
