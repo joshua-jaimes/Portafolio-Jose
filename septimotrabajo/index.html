@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Simulador de Carreras Futuristas — Demo</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg1: #05060a;
+        --bg2: #0b1020;
+        --neon-cian: #00f0ff;
+        --neon-morado: #b200ff;
+        --neon-rojo: #ff2d55;
+        --glass: rgba(255, 255, 255, 0.04);
+        --glass-2: rgba(255, 255, 255, 0.06);
+        --card-bg: rgba(10, 10, 12, 0.55);
+        --accent: linear-gradient(90deg, var(--neon-cian), var(--neon-morado));
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        background: radial-gradient(
+            1200px 600px at 10% 10%,
+            rgba(11, 16, 32, 0.7),
+            transparent
+          ),
+          linear-gradient(120deg, var(--bg1), var(--bg2));
+        color: #e6eef8;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-y: auto;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      .hero-bg {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        pointer-events: none;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          transparent
+        );
+        animation: drift 18s linear infinite;
+        opacity: 0.6;
+      }
+
+      @keyframes drift {
+        0% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-8px) rotate(0.2deg);
+        }
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+      }
+
+      .wrap {
+        max-width: 1200px;
+        margin: 36px auto;
+        padding: 24px;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .logo {
+        width: 72px;
+        height: 72px;
+        border-radius: 12px;
+        background: linear-gradient(
+          135deg,
+          var(--neon-cian),
+          var(--neon-morado)
+        );
+        box-shadow: 0 6px 30px rgba(0, 240, 255, 0.06),
+          0 0 18px rgba(178, 0, 255, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Orbitron", sans-serif;
+        font-weight: 700;
+        color: #031018;
+        font-size: 20px;
+      }
+      .title {
+        font-family: "Orbitron", sans-serif;
+        font-size: 36px;
+        line-height: 1;
+        color: var(--neon-cian);
+        text-shadow: 0 0 10px rgba(0, 240, 255, 0.12),
+          0 0 28px rgba(178, 0, 255, 0.06);
+      }
+      .subtitle {
+        font-size: 12px;
+        color: #9fb0c9;
+        margin-top: 4px;
+      }
+
+      nav {
+        display: flex;
+        gap: 12px;
+      }
+      .nav-btn {
+        padding: 10px 14px;
+        border-radius: 10px;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        color: #dcefff;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 14px;
+        backdrop-filter: blur(6px);
+      }
+      .nav-btn.active {
+        border-image: linear-gradient(
+            90deg,
+            var(--neon-cian),
+            var(--neon-morado)
+          )
+          1;
+        border-color: transparent;
+        box-shadow: 0 6px 22px rgba(0, 240, 255, 0.06),
+          0 0 28px rgba(178, 0, 255, 0.05);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+      }
+
+      main.section {
+        padding: 20px 0;
+      }
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 28px;
+        align-items: center;
+        padding: 28px;
+        border-radius: 14px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          transparent
+        );
+        box-shadow: 0 8px 40px rgba(11, 16, 32, 0.6),
+          inset 0 1px 0 rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(6px) saturate(1.05);
+      }
+      .hero-left h1 {
+        font-family: "Orbitron", sans-serif;
+        font-size: 56px;
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+      }
+      .hero-left p {
+        color: #c9e6ff;
+        margin-bottom: 18px;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 20px;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 16px;
+        background: linear-gradient(
+          90deg,
+          var(--neon-cian),
+          var(--neon-morado)
+        );
+        color: #031018;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 10px 40px rgba(0, 240, 255, 0.12);
+      }
+
+      .video-holder {
+        width: 100%;
+        height: 240px;
+        border-radius: 12px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        position: relative;
+        overflow: hidden;
+      }
+      .video-holder::after {
+        content: "VIDEO";
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.06);
+        font-size: 72px;
+        font-family: "Orbitron", sans-serif;
+        opacity: 0.9;
+      }
+
+      .vehicles-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      .card {
+        background: var(--card-bg);
+        padding: 14px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6),
+          0 0 24px rgba(178, 0, 255, 0.03);
+        backdrop-filter: blur(6px);
+        transition: transform 0.22s ease, box-shadow 0.22s ease;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 50px rgba(178, 0, 255, 0.12),
+          0 0 36px rgba(0, 240, 255, 0.06);
+      }
+      .vehicle-img {
+        height: 130px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        background: linear-gradient(
+          120deg,
+          rgba(0, 240, 255, 0.06),
+          rgba(178, 0, 255, 0.06)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Orbitron";
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 700;
+        font-size: 18px;
+      }
+      .stats {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+      }
+      .stat {
+        flex: 1;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.01),
+          transparent
+        );
+        padding: 8px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 12px;
+      }
+      .stat b {
+        display: block;
+        font-size: 14px;
+      }
+
+      .neon-badge {
+        padding: 6px 10px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-family: "Orbitron", sans-serif;
+        background: linear-gradient(
+          90deg,
+          var(--neon-cian),
+          var(--neon-morado)
+        );
+        color: #031018;
+        display: inline-block;
+      }
+
+      .circuit {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        padding: 12px;
+        border-radius: 10px;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.25), transparent);
+        border: 1px solid rgba(255, 255, 255, 0.03);
+      }
+      .circuit .map {
+        width: 160px;
+        height: 88px;
+        border-radius: 8px;
+        flex-shrink: 0;
+        background: repeating-linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.02) 0 4px,
+          transparent 4px 8px
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Orbitron";
+      }
+      .circuit h4 {
+        font-family: "Orbitron";
+        margin-bottom: 4px;
+      }
+      .circuit p {
+        font-size: 13px;
+        color: #bfd8ff;
+      }
+
+      .glow {
+        animation: pulse 2.6s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          text-shadow: 0 0 6px rgba(0, 240, 255, 0.06);
+        }
+        50% {
+          text-shadow: 0 0 20px rgba(0, 240, 255, 0.18);
+        }
+        100% {
+          text-shadow: 0 0 6px rgba(0, 240, 255, 0.06);
+        }
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .brand .title {
+          font-size: 28px;
+        }
+        .hero-left h1 {
+          font-size: 40px;
+        }
+      }
+
+
+
+
+
+      
+    </style>
+  </head>
+  <body>
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <div class="logo">SC</div>
+          <div>
+            <div class="title">Simulador Futurista</div>
+            <div class="subtitle">Velocidad, neón y diseño — Demo</div>
+          </div>
+        </div>
+
+        <nav aria-label="Navegación principal">
+          <button class="nav-btn active" data-target="index">Inicio</button>
+          <button class="nav-btn" data-target="vehicles">Vehículos</button>
+          <button class="nav-btn" data-target="circuits">Circuitos</button>
+        </nav>
+      </header>
+
+      <main id="index" class="section">
+        <section class="hero">
+          <div class="hero-left">
+            <h1 class="glow">Neon Velocity</h1>
+            <p style=" font-size: 1.2rem; margin-bottom: 1.8rem; margin-top: 1.8rem;">
+              Entrena para carreras a alta velocidad con naves y pistas
+              futuristas. Este prototipo muestra la estructura del sitio:
+              páginas, tarjetas, efectos y animaciones. El video es un
+              contenedor (sin funcionalidad).
+            </p>
+            <div style="display: flex; gap: 12px; align-items: center">
+              <button class="cta" id="playNow" style="
+  background: transparent;
+  border: 2px solid #00eaff;
+  color: #00eaff;
+  padding: 12px 30px;
+  border-radius: 12px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px #00eaff;
+  display:block;
+
+">Jugar Ahora</button>
+              <span class="neon-badge" style="
+  background: transparent;
+  border: 2px solid #00eaff;
+  color: #00eaff;
+  padding: 12px 30px;
+  border-radius: 12px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px #00eaff;
+  display:block;
+
+">Modo Demo</span>
+            </div>
+          </div>
+
+          <aside>
+            <div
+              class="video-holder"
+              role="img"
+              aria-label="Contenedor de video de demostración"
+              style="padding-left: 15.3rem; width: 112%; height: 45%;"
+            >
+              <video autoplay muted loop playsinline class="demo-video">
+                <source src="1072075192-preview.mp4" type="video/mp4" style="justify-self: center;/>
+                Tu navegador no soporta videos HTML5.
+              </video>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                gap: 8px;
+                margin-top: 12px;
+                justify-content: space-between;
+              "
+            >
+              <small style="color: #9fb0c9"
+                >Último evento: Circuito Neon City</small
+              >
+              <small style="color: #9fb0c9">Pilotos: 12</small>
+            </div>
+          </aside>
+        </section>
+      </main>
+
+      <main id="vehicles" class="section" style="display: none; text-align: center;">
+  <h2 style="font-family: 'Orbitron', sans-serif; margin-bottom: 12px">Vehículos</h2>
+
+  <div id="car-container" style="position: relative; width: 80%; margin: 0 auto;">
+    <button id="prevCar" style="
+      position: absolute; left: -60px; top: 50%; transform: translateY(-50%);
+      font-size: 32px; background: none; border: none; color: var(--neon-cian); cursor: pointer;">◀</button>
+
+    <img id="carImage" src="foto1.jpg" 
+      style="width: 70%; border-radius: 16px; box-shadow: 0 0 40px rgba(0,240,255,0.3); transition: transform 0.3s ease;">
+    
+    <button id="nextCar" style="
+      position: absolute; right: -60px; top: 50%; transform: translateY(-50%);
+      font-size: 32px; background: none; border: none; color: var(--neon-cian); cursor: pointer;">▶</button>
+  </div>
+
+  <h3 id="carName" style="font-family: 'Orbitron', sans-serif; margin-top: 16px;">A1 - Razor</h3>
+  <p id="carDesc" style="color: #bfe6ff; font-size: 14px;">
+    Cuerpo ultraligero con sistemas de propulsión de corto impulso.<br>
+    <span style="display: flex; justify-content: center; gap: 4REM; margin-top: 1REM; color: white; font-size: 0.9rem ;"><b>Velocidad: 320 km/h &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Aceleracion: 6.2 s &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manejo:85%  </b></span>
+  </p>
+
+  <div style="display: flex; justify-content: center; gap: 4REM; margin-top: 1REM;">
+  <p id="carSpeed"></p>
+<p id="carAccel"></p>
+<p id="carHandling"></p>
+</div>
+</main>
+
+      <main id="circuits" class="section" style="display: none">
+        <h2 style="font-family: 'Orbitron', sans-serif; margin-bottom: 12px">
+          Circuitos
+        </h2>
+        <div
+          class="grid"
+          style="display: flex; flex-direction: column; gap: 12px"
+        >
+          <div class="circuit card">
+            <div
+              class="map"
+              style="
+                background: linear-gradient(135deg, #051026, #0b1632);
+                box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6),
+                  0 0 18px rgba(0, 240, 255, 0.04);
+              "
+            >
+              <img src="image1.png" style="width: 90%;">
+            </div>
+            <div>
+              <h4>Neon City</h4>
+              <p>
+                Un circuito urbano con rectas largas y curvas cerradas.
+                Dificultad: Media — ideal para maniobras en túneles de neón.
+              </p>
+            </div>
+          </div>
+
+          <div class="circuit card">
+            <div
+              class="map"
+              style="background: linear-gradient(135deg, #210018, #2b0a2f)"
+            >
+             <img src="image2.png" style="width: 90%;">
+            </div>
+            <div>
+              <h4>Crimson Canyon</h4>
+              <p>
+                Pistas montañosas y cambios de altitud. Dificultad: Alta —
+                requiere control y frenadas precisas.
+              </p>
+            </div>
+          </div>
+
+          <div class="circuit card">
+            <div
+              class="map"
+              style="background: linear-gradient(135deg, #001826, #00334d)"
+            >
+              <img src="image3.png" style="width: 90%;">
+            </div>
+            <div>
+              <h4>Aqua Loop</h4>
+              <p>
+                Pista con secciones cerca del agua y puentes flotantes.
+                Dificultad: Baja — perfecta para principiantes y aprendizaje.
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      const navBtns = document.querySelectorAll(".nav-btn");
+      const sections = {
+        index: document.getElementById("index"),
+        vehicles: document.getElementById("vehicles"),
+        circuits: document.getElementById("circuits"),
+      };
+
+      function show(target) {
+        Object.keys(sections).forEach((k) => {
+          sections[k].style.display = k === target ? "block" : "none";
+        });
+        navBtns.forEach((b) =>
+          b.classList.toggle("active", b.dataset.target === target)
+        );
+
+        history.replaceState(null, "", "#" + target);
+      }
+
+      navBtns.forEach((b) =>
+        b.addEventListener("click", () => show(b.dataset.target))
+      );
+
+      const initial =
+        location.hash && location.hash.slice(1) in sections
+          ? location.hash.slice(1)
+          : "index";
+      show(initial);
+
+      document
+        .getElementById("playNow")
+        .addEventListener("click", () => show("vehicles"));
+
+
+
+      const cars = [
+  {
+    img: "foto1.jpg",
+    name: "A1 - Razor",
+    desc: "Cuerpo ultraligero con sistemas de propulsión de corto impulso.",
+    speed: "320 km/h",
+    accel: "6.2 s",
+    handling: "85%"
+  },
+  {
+    img: "foto 2.jpg",
+    name: "B2 - Phantom",
+    desc: "Diseño furtivo de baja firma térmica.",
+    speed: "300 km/h",
+    accel: "7.0 s",
+    handling: "90%"
+  },
+  {
+    img: "foto 5.jpg",
+    name: "X-Series - Vortex",
+    desc: "Máquina de alto rendimiento pensada para rectas largas.",
+    speed: "350 km/h",
+    accel: "5.5 s",
+    handling: "80%"
+  },
+  {
+    img: "foto 3.webp",
+    name: "Z-Interceptor",
+    desc: "Equilibrio entre velocidad y control, ideal para principiantes.",
+    speed: "280 km/h",
+    accel: "8.0 s",
+    handling: "92%"
+  }
+];
+
+let i = 0;
+const img = document.getElementById("carImage");
+const nameEl = document.getElementById("carName");
+const descEl = document.getElementById("carDesc");
+const speedEl = document.getElementById("carSpeed");
+const accelEl = document.getElementById("carAccel");
+const handlingEl = document.getElementById("carHandling");
+
+function updateCar() {
+  img.style.transform = "scale(0.9)";
+  setTimeout(() => {
+    const car = cars[i];
+    img.src = car.img;
+    nameEl.textContent = car.name;
+    descEl.textContent = car.desc;
+    speedEl.textContent = `Velocidad: ${car.speed}`;
+    accelEl.textContent = `Aceleración: ${car.accel}`;
+    handlingEl.textContent = `Manejo: ${car.handling}`;
+    img.style.transform = "scale(1)";
+  }, 200);
+}
+
+document.getElementById("nextCar").onclick = () => {
+  i = (i + 1) % cars.length;
+  updateCar();
+};
+document.getElementById("prevCar").onclick = () => {
+  i = (i - 1 + cars.length) % cars.length;
+  updateCar();
+};
+
+
+
+// === CIRCUITOS ===
+const circuits = [
+  {
+    img: "image1.png",
+    name: "Neon City",
+    desc: "Un circuito urbano con rectas largas y curvas cerradas. Dificultad: Media — ideal para maniobras en túneles de neón."
+  },
+  {
+    img: "image2.png",
+    name: "Crimson Canyon",
+    desc: "Pistas montañosas y cambios de altitud. Dificultad: Alta — requiere control y frenadas precisas."
+  },
+  {
+    img: "image3.png",
+    name: "Aqua Loop",
+    desc: "Pista con secciones cerca del agua y puentes flotantes. Dificultad: Baja — perfecta para principiantes y aprendizaje."
+  }
+];
+
+let c = 0;
+const circuitSection = document.getElementById("circuits");
+circuitSection.innerHTML = `
+  <h2 style="font-family: 'Orbitron', sans-serif; margin-bottom: 12px">Circuitos</h2>
+  <div id="circuit-container" style="position: relative; width: 80%; margin: 0 auto; text-align:center;">
+    <button id="prevCircuit" style="
+      position: absolute; left: -60px; top: 50%; transform: translateY(-50%);
+      font-size: 32px; background: none; border: none; color: var(--neon-cian); cursor: pointer;">◀</button>
+<img id="circuitImage" src="${circuits[0].img}" 
+  style="width: 40%; border-radius: 16px; box-shadow: 0 0 40px rgba(0,240,255,0.3); transition: transform 0.3s ease;">
+
+    <button id="nextCircuit" style="
+      position: absolute; right: -60px; top: 50%; transform: translateY(-50%);
+      font-size: 32px; background: none; border: none; color: var(--neon-cian); cursor: pointer;">▶</button>
+  </div>
+
+  <div style="text-align: center; margin-top: 16px;">
+  <h3 id="circuitName" style="font-family: 'Orbitron', sans-serif;">${circuits[0].name}</h3>
+  <p id="circuitDesc" style="color: #bfe6ff; font-size: 14px; max-width: 600px; margin: 0 auto;">${circuits[0].desc}</p>
+</div>
+
+`;
+
+const cImg = document.getElementById("circuitImage");
+const cName = document.getElementById("circuitName");
+const cDesc = document.getElementById("circuitDesc");
+
+function updateCircuit() {
+  cImg.style.transform = "scale(0.9)";
+  setTimeout(() => {
+    const circuit = circuits[c];
+    cImg.src = circuit.img;
+    cName.textContent = circuit.name;
+    cDesc.textContent = circuit.desc;
+    cImg.style.transform = "scale(1)";
+  }, 200);
+}
+
+document.getElementById("nextCircuit").onclick = () => {
+  c = (c + 1) % circuits.length;
+  updateCircuit();
+};
+document.getElementById("prevCircuit").onclick = () => {
+  c = (c - 1 + circuits.length) % circuits.length;
+  updateCircuit();
+};
+
+
+    </script>
+  </body>
+</html>
