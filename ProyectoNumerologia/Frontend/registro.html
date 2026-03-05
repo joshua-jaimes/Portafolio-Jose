@@ -1,0 +1,479 @@
+<template>
+  <q-layout view="hHh lpR fFf" class="bg-background-dark">
+    <!-- Background decorative elements -->
+    <div class="fixed-bg">
+      <div class="bg-radial"></div>
+      <div class="bg-blob-bottom-right"></div>
+      <div class="bg-blob-top-left"></div>
+    </div>
+
+    <q-page-container>
+      <q-page class="flex flex-center page-min-height q-pa-md">
+        <div class="register-card row no-wrap rounded-2xl overflow-hidden shadow-2xl">
+
+          <!-- Left Side: Brand / Visual Area -->
+          <div class="left-panel col-6 hidden-md-and-down relative-position flex flex-col justify-between q-pa-xl">
+            <!-- Background image overlay -->
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkJsS36YgozZ1lzi1eWpVcDcr15CuClyFAQ2RMXHRZnz4XFuy7NuFijhBoHMxPIqflK2zQMCMe7niNY95d10Y5NbRyc_ZNNJeg7Fl7zbFKVM1C3V80Ao9MeFy5OCjUG3z2MEga8-iR_aX7pgLgTeYOXKe26XnYxZuUSnjSHc9QHHEibKdTM0oTOOcQ51JE2G4hxaOc4AkPqiBK1pggJDJ6iVBsz460cT3mm-jbodQ1Df23Aw4ikxZ5BX8HWOrodeWllc9_XXRGFbI"
+              class="absolute-full object-cover image-overlay"
+              alt="Sacred geometry"
+            />
+            <div class="absolute-full image-gradient"></div>
+
+            <!-- Logo -->
+            <div class="relative-position z-index-1">
+              <div class="row items-center q-gutter-sm">
+                <q-icon name="auto_awesome" color="gold" size="32px" />
+                <span class="logo-text">Num<span class="text-primary">AI</span></span>
+              </div>
+
+              <div class="q-mt-xl">
+                <h1 class="text-h3 text-weight-bold text-white line-height-tight">
+                  Descubre el código secreto de tu vida
+                </h1>
+                <p class="text-body1 text-grey-4 q-mt-md light-weight line-height-relaxed">
+                  Únete a la plataforma de numerología más avanzada. Lecturas generadas por IA,
+                  cartas natales precisas y una comunidad consciente te esperan.
+                </p>
+              </div>
+            </div>
+
+            <!-- Social Proof -->
+            <div class="relative-position z-index-1">
+              <div class="social-proof-card row items-center q-pa-md rounded-xl q-gutter-md">
+                <div class="avatar-stack row">
+                  <q-avatar size="40px" class="avatar-border">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1M61kIf5lRsKzV8pqX2jxZsll2t0icWslo6Nzw2gSBZnkrUCnmTS9YGnL74nFikp04578wz223TEdTGIiI2NqZ6_RcDpR8seX8B5vDonGR2nF1ZeLBfOEMuKjhlsgleRURbdwyQs3v1oBVrNP51buZbdsXzZqByEugLXUP6yT3TZz_MxVQHs3qjyb9Z8aIpm4SGf2uG1OVT3mfNA5rwDh0Kke6kvJaBTLrGNBaVehwYEiuTM3NGgstp6-Pl4y7XBvDxzyioUOuZw" alt="User 1" />
+                  </q-avatar>
+                  <q-avatar size="40px" class="avatar-border avatar-offset">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDESfm8icaW9wT-nAlrwx_3JF5APeCxP0OvaIGXrtPsjVO3xpTfKFtPh5UvfOMDg7rvsrPvAyx2mfT4oEjlDlCviWHnKVYd2LcoIigfHEmLXEZaa5WllpMc7_KQzqEoACoXc39jHw9OpvgUTbr1KUPKAS5iLwutYW_AjQZGPRtpcmVq9pY6IMwL3VFkeBUxAM_gzW3otC4BjLE04mSZmQp6BowVcOaeHSgIiacZc2JImQiuWkg7Fve5Pe_ZDDg_xWhcbl6JI6sd-k" alt="User 2" />
+                  </q-avatar>
+                  <q-avatar size="40px" class="avatar-border avatar-offset">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuChi-kYa_wHnbfwjN5ZaPKeehD21HxhX0XH0alzsbL0oCa1AJS6Qz0XVYlOxsPB3TaRFCmp58zwU1m1vTHx5oPKtJpoWWjO1t73hfsrovyXjgOpeATizbAbYaHgC5JATCOXHnp9Dfzs5xyvXkeTvxNIrwc_wdHOTGFGisHzJpcq2nKKvGuyK7bg11UDv3ZlkCMxsMyzJoGMEh1VSV1x54QiqG8Y7R4Me5lDNai_ccdAnAwZ04ZhCx_PoaSuGOflksB3u-Y5PDypKqU" alt="User 3" />
+                  </q-avatar>
+                </div>
+                <div>
+                  <div class="row q-gutter-xs">
+                    <q-icon v-for="i in 5" :key="i" name="star" color="gold" size="14px" />
+                  </div>
+                  <p class="text-grey-4 text-body2 q-mb-none">
+                    <span class="text-weight-bold text-white">10k+</span> usuarios iluminados
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side: Form -->
+          <div class="right-panel col-12 col-md-6 flex flex-col justify-center q-pa-xl relative-position">
+            <!-- Login link top right -->
+            <div class="absolute-top-right q-pa-lg hidden-sm-and-down">
+              <span class="text-grey-5 text-caption">
+                ¿Ya tienes cuenta?
+                <q-btn flat dense no-caps color="primary" label="Inicia sesión" class="q-ml-xs text-caption" />
+              </span>
+            </div>
+
+            <div style="max-width: 420px; width: 100%; margin: 0 auto;">
+              <div class="q-mb-lg">
+                <h2 class="text-h4 text-weight-bold text-white q-mb-xs">Crear Cuenta</h2>
+                <p class="text-grey-5 q-mb-none">Ingresa tus datos para calcular tu numerología inicial.</p>
+              </div>
+
+              <q-form @submit.prevent="onSubmit" class="q-gutter-y-md">
+
+                <!-- Full Name -->
+                <div>
+                  <label class="text-grey-4 text-caption text-weight-medium q-mb-xs block">Nombre Completo</label>
+                  <q-input
+                    v-model="form.name"
+                    outlined
+                    dark
+                    dense
+                    placeholder="Ej. Ana García"
+                    class="custom-input"
+                    bg-color="background-input"
+                    color="primary"
+                  >
+                    <template #prepend>
+                      <q-icon name="person_outline" color="grey-7" class="icon-transition" />
+                    </template>
+                  </q-input>
+                </div>
+
+                <!-- Email -->
+                <div>
+                  <label class="text-grey-4 text-caption text-weight-medium q-mb-xs block">Correo Electrónico</label>
+                  <q-input
+                    v-model="form.email"
+                    type="email"
+                    outlined
+                    dark
+                    dense
+                    placeholder="nombre@ejemplo.com"
+                    class="custom-input"
+                    bg-color="background-input"
+                    color="primary"
+                  >
+                    <template #prepend>
+                      <q-icon name="alternate_email" color="grey-7" />
+                    </template>
+                  </q-input>
+                </div>
+
+                <!-- Date of Birth -->
+                <div>
+                  <label class="text-grey-4 text-caption text-weight-medium q-mb-xs block">Fecha de Nacimiento</label>
+                  <q-input
+                    v-model="form.dob"
+                    type="date"
+                    outlined
+                    dark
+                    dense
+                    class="custom-input dob-input"
+                    bg-color="background-input"
+                    color="primary"
+                  >
+                    <template #prepend>
+                      <q-icon name="cake" color="grey-7" />
+                    </template>
+                  </q-input>
+                  <div class="row items-center q-gutter-xs q-mt-xs">
+                    <q-icon name="lock" size="12px" color="primary" />
+                    <span class="text-primary text-caption" style="opacity: 0.8;">Necesario para tu carta natal precisa</span>
+                  </div>
+                </div>
+
+                <!-- Password -->
+                <div>
+                  <label class="text-grey-4 text-caption text-weight-medium q-mb-xs block">Contraseña</label>
+                  <q-input
+                    v-model="form.password"
+                    :type="showPassword ? 'text' : 'password'"
+                    outlined
+                    dark
+                    dense
+                    placeholder="••••••••"
+                    class="custom-input"
+                    bg-color="background-input"
+                    color="primary"
+                  >
+                    <template #prepend>
+                      <q-icon name="lock_outline" color="grey-7" />
+                    </template>
+                    <template #append>
+                      <q-icon
+                        :name="showPassword ? 'visibility' : 'visibility_off'"
+                        color="grey-6"
+                        class="cursor-pointer"
+                        @click="showPassword = !showPassword"
+                      />
+                    </template>
+                  </q-input>
+                </div>
+
+                <!-- Submit Button -->
+                <q-btn
+                  type="submit"
+                  unelevated
+                  no-caps
+                  class="full-width submit-btn q-mt-sm"
+                  label="Calcular mi Numerología"
+                  icon-right="arrow_forward"
+                  size="md"
+                />
+              </q-form>
+
+              <!-- Divider -->
+              <div class="q-my-lg divider-container">
+                <q-separator dark color="grey-9" />
+                <span class="divider-label text-grey-6 text-caption">O regístrate con</span>
+              </div>
+
+              <!-- Social Login -->
+              <div class="row q-gutter-sm">
+                <q-btn
+                  outline
+                  no-caps
+                  class="col social-btn"
+                  color="grey-7"
+                  @click="loginWith('google')"
+                >
+                  <svg class="q-mr-sm" height="18" width="18" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/>
+                  </svg>
+                  <span class="text-grey-4">Google</span>
+                </q-btn>
+
+                <q-btn
+                  outline
+                  no-caps
+                  class="col social-btn"
+                  color="grey-7"
+                  @click="loginWith('apple')"
+                >
+                  <svg class="q-mr-sm" height="18" width="18" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.24.75-.62 1.49-1.12 2.08-.8.95-1.51 1.63-2.41 1.99zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                  </svg>
+                  <span class="text-grey-4">Apple</span>
+                </q-btn>
+              </div>
+
+              <!-- Mobile login link -->
+              <div class="text-center q-mt-lg gt-sm hidden-md-and-up">
+                <span class="text-grey-5 text-caption">
+                  ¿Ya tienes cuenta?
+                  <q-btn flat dense no-caps color="primary" label="Inicia sesión" class="q-ml-xs text-caption" />
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </q-page>
+    </q-page-container>
+  </q-layout>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const form = ref({
+  name: '',
+  email: '',
+  dob: '',
+  password: ''
+})
+
+const showPassword = ref(false)
+
+function onSubmit() {
+  console.log('Form submitted:', form.value)
+  // Handle registration logic here
+}
+
+function loginWith(provider) {
+  console.log('Login with:', provider)
+  // Handle OAuth logic here
+}
+</script>
+
+<style scoped>
+/* ─── CSS Variables ─── */
+:root {
+  --primary: #7311d4;
+  --primary-light: #8f3ce6;
+  --gold: #D4AF37;
+  --bg-dark: #191022;
+  --surface-dark: #231630;
+}
+
+/* ─── Page Background ─── */
+.page-min-height {
+  min-height: 100vh;
+}
+
+.fixed-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-radial {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(115, 17, 212, 0.2), #191022 60%);
+}
+
+.bg-blob-bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 384px;
+  height: 384px;
+  background: rgba(115, 17, 212, 0.1);
+  border-radius: 9999px;
+  filter: blur(60px);
+  opacity: 0.5;
+}
+
+.bg-blob-top-left {
+  position: absolute;
+  top: 80px;
+  left: 80px;
+  width: 256px;
+  height: 256px;
+  background: rgba(212, 175, 55, 0.05);
+  border-radius: 9999px;
+  filter: blur(60px);
+  opacity: 0.3;
+}
+
+/* ─── Card ─── */
+.register-card {
+  width: 100%;
+  max-width: 1100px;
+  border: 1px solid rgba(115, 17, 212, 0.2);
+  position: relative;
+  z-index: 10;
+}
+
+/* ─── Left Panel ─── */
+.left-panel {
+  background-color: #231630;
+}
+
+.image-overlay {
+  opacity: 0.6;
+  mix-blend-mode: overlay;
+  object-fit: cover;
+}
+
+.image-gradient {
+  background: linear-gradient(to top, #191022, rgba(115, 17, 212, 0.2), transparent);
+}
+
+.z-index-1 {
+  z-index: 1;
+  position: relative;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.5px;
+}
+
+.line-height-tight {
+  line-height: 1.15;
+}
+
+.line-height-relaxed {
+  line-height: 1.7;
+}
+
+.light-weight {
+  font-weight: 300;
+}
+
+/* ─── Social Proof ─── */
+.social-proof-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.avatar-stack {
+  position: relative;
+}
+
+.avatar-border {
+  border: 2px solid #191022;
+}
+
+.avatar-offset {
+  margin-left: -10px;
+}
+
+/* ─── Right Panel ─── */
+.right-panel {
+  background-color: #231630;
+}
+
+/* ─── Custom Quasar Input overrides ─── */
+:deep(.custom-input .q-field__control) {
+  background-color: rgba(25, 16, 34, 0.5) !important;
+  border-color: rgba(75, 85, 99, 0.6) !important;
+  border-radius: 8px;
+}
+
+:deep(.custom-input .q-field__control:hover) {
+  border-color: rgba(115, 17, 212, 0.5) !important;
+}
+
+:deep(.custom-input .q-field--focused .q-field__control) {
+  border-color: #7311d4 !important;
+  box-shadow: 0 0 0 1px rgba(115, 17, 212, 0.3);
+}
+
+:deep(.custom-input .q-field__native) {
+  color: #f3f4f6 !important;
+}
+
+:deep(.custom-input .q-field__native::placeholder) {
+  color: #6b7280;
+}
+
+/* Date input color in dark mode */
+:deep(.dob-input .q-field__native) {
+  color-scheme: dark;
+}
+
+/* ─── Submit Button ─── */
+.submit-btn {
+  background: #7311d4 !important;
+  color: white;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 500;
+  box-shadow: 0 0 15px rgba(115, 17, 212, 0.5);
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: #8f3ce6 !important;
+  box-shadow: 0 0 25px rgba(115, 17, 212, 0.7);
+}
+
+/* ─── Divider ─── */
+.divider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.divider-container .q-separator {
+  flex: 1;
+}
+
+.divider-label {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #231630;
+  padding: 0 12px;
+  white-space: nowrap;
+}
+
+/* ─── Social Buttons ─── */
+.social-btn {
+  border-color: rgba(75, 85, 99, 0.6) !important;
+  background-color: rgba(25, 16, 34, 0.5) !important;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.social-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* ─── Autofill override ─── */
+:deep(input:-webkit-autofill),
+:deep(input:-webkit-autofill:hover),
+:deep(input:-webkit-autofill:focus) {
+  -webkit-box-shadow: 0 0 0 30px #231630 inset !important;
+  -webkit-text-fill-color: white !important;
+}
+
+/* ─── Quasar Layout BG ─── */
+:deep(.q-layout) {
+  background-color: #191022;
+}
+
+:deep(.q-page-container) {
+  background-color: #191022;
+}
+</style>
